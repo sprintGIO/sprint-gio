@@ -535,9 +535,17 @@
 
     <script>
 
-        function openStory() {
+       function openStory() {
 
-            document.getElementById("home").style.display = "none";
+    document.getElementById("home").style.display = "none";
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.5;
+
+    music.play().catch(function(error) {
+        console.log("Musik tidak dapat diputar:", error);
+    });
 
             const story = document.getElementById("story");
 
@@ -566,6 +574,10 @@
         }
 
     </script>
+
+<audio id="bgMusic" loop>
+    <source src="Never%20Give%20Up%20%28The%20Jagg%20Remix%29%20%5Bvbf0KIdWDOk%5D.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
