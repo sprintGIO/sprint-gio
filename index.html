@@ -514,7 +514,588 @@
                     target="_blank"
                 >
                     Follow @feridya6
+                    
                 </a>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sprint.Gio — A Story of Coraggio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           HALAMAN DEPAN
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background:
+                radial-gradient(circle at center, #252525 0%, #0b0b0b 55%);
+        }
+
+        .home-content {
+            max-width: 850px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .home-content h1 {
+            font-size: clamp(50px, 9vw, 100px);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .home-content p {
+            font-size: clamp(18px, 3vw, 28px);
+            color: #ccc;
+            margin-bottom: 45px;
+        }
+
+        .story-button {
+            border: none;
+            padding: 18px 38px;
+            border-radius: 50px;
+            background: #fff;
+            color: #111;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 10px 30px rgba(255,255,255,.12);
+        }
+
+        .story-button:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 15px 40px rgba(255,255,255,.25);
+        }
+
+        /* =========================
+           CERITA
+        ========================== */
+
+        #story {
+            display: none;
+            min-height: 100vh;
+            padding: 80px 20px;
+            background:
+                linear-gradient(rgba(0,0,0,.88), rgba(0,0,0,.96)),
+                radial-gradient(circle at top, #3a3a3a, #080808);
+        }
+
+        .story-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .story-header .small-title {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .story-header h1 {
+            font-size: clamp(40px, 8vw, 75px);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .story-header h2 {
+            font-size: clamp(18px, 3vw, 28px);
+            font-weight: normal;
+            color: #bbb;
+        }
+
+        .line {
+            width: 80px;
+            height: 3px;
+            background: #fff;
+            margin: 30px auto;
+        }
+
+        /* CARD CERITA */
+
+        .story-card {
+            margin-bottom: 45px;
+            padding: 35px;
+            border: 1px solid #333;
+            border-radius: 20px;
+            background: rgba(255,255,255,.035);
+            box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            transition: .3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-4px);
+            border-color: #666;
+        }
+
+        .story-card h3 {
+            font-size: 27px;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+
+        .story-card p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #d0d0d0;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .quote {
+            margin: 30px 0;
+            padding: 25px;
+            border-left: 4px solid #fff;
+            background: rgba(255,255,255,.05);
+            font-size: 20px;
+            line-height: 1.7;
+            font-style: italic;
+            color: #eee;
+        }
+
+        /* PENUTUP */
+
+        .ending {
+            text-align: center;
+            padding: 70px 20px 30px;
+        }
+
+        .ending h2 {
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+
+        .ending p {
+            color: #bbb;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .instagram {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 30px;
+            border-radius: 50px;
+            background: #fff;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .instagram:hover {
+            transform: scale(1.05);
+        }
+
+        .back-button {
+            display: block;
+            margin: 60px auto 0;
+            background: transparent;
+            color: #aaa;
+            border: 1px solid #444;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .back-button:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            color: #555;
+            margin-top: 60px;
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes storyIn {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .show-story {
+            animation: storyIn 1s ease;
+        }
+
+        @media (max-width: 600px) {
+
+            #story {
+                padding: 60px 15px;
+            }
+
+            .story-card {
+                padding: 25px 20px;
+            }
+
+            .story-card p {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            .quote {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HALAMAN AWAL
+    ========================== -->
+
+    <section id="home">
+
+        <div class="home-content">
+
+            <h1>Sprint.Gio</h1>
+
+            <p>
+                Vespa pink yang dibuat di SMR GARAGE77.
+            </p>
+
+            <button class="story-button" onclick="openStory()">
+                Klik untuk melihat cerita
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HALAMAN CERITA
+    ========================== -->
+
+    <section id="story">
+
+        <div class="story-container">
+
+            <div class="story-header">
+
+                <div class="small-title">
+                    SPRINT.GIO
+                </div>
+
+                <h1>A Story of Coraggio</h1>
+
+                <h2>
+                    Keberanian untuk Terus Berjalan
+                </h2>
+
+                <div class="line"></div>
+
+            </div>
+
+
+            <!-- AWAL CERITA -->
+
+            <div class="story-card">
+
+                <h3>— AWAL PERJALANAN</h3>
+
+                <p>
+                    Motor ini pertama kali dibeli pada tahun
+                    <span class="highlight">2020</span>.
+                </p>
+
+                <p>
+                    Tapi bukannya langsung dipakai santai...
+                    motor ini malah langsung masuk bengkel karena
+                    owner memang memiliki karakter yang gemar
+                    <span class="highlight">speeding</span>.
+                </p>
+
+                <p>
+                    Sejak saat itu, Sprint.Gio memulai perjalanan
+                    panjang yang ternyata tidak semudah yang dibayangkan.
+                </p>
+
+            </div>
+
+
+            <!-- 5 TAHUN -->
+
+            <div class="story-card">
+
+                <h3>— 5 TAHUN PERJALANAN</h3>
+
+                <p>
+                    Selama kurang lebih
+                    <span class="highlight">5 tahun</span>,
+                    Sprint.Gio telah melewati banyak proses.
+                </p>
+
+                <p>
+                    Motor ini bahkan sudah
+                    <span class="highlight">3 kali berpindah bengkel</span>.
+                </p>
+
+                <p>
+                    Bukan karena sekadar ingin mencoba tempat baru,
+                    tetapi karena di bengkel sebelumnya belum ditemukan
+                    penyelesaian yang benar-benar cocok dengan karakter
+                    motor ini.
+                </p>
+
+                <p>
+                    Waktu, tenaga, dan tentunya dana sudah cukup banyak
+                    keluar dalam perjalanan tersebut.
+                </p>
+
+            </div>
+
+
+            <!-- SMR GARAGE -->
+
+            <div class="story-card">
+
+                <h3>— SMR GARAGE77</h3>
+
+                <p>
+                    Hingga akhirnya owner memutuskan untuk membangun
+                    kembali Sprint.Gio di
+                    <span class="highlight">SMR GARAGE77</span>.
+                </p>
+
+                <p>
+                    Di sana, Sprint.Gio kembali dibangun dengan
+                    <span class="highlight">spek 63 standar</span>.
+                </p>
+
+                <p>
+                    Kalau dilihat dari dunia modifikasi, mungkin
+                    spek tersebut masih bisa dibilang nanggung.
+                </p>
+
+                <p>
+                    Bahkan dari tampilannya pun motor ini masih
+                    terlihat biasa saja.
+                </p>
+
+                <p>
+                    Bukan karena owner tidak ingin membuatnya lebih
+                    bagus, tetapi karena sebagian dana sudah banyak
+                    terpakai dalam perjalanan di bengkel-bengkel
+                    sebelumnya.
+                </p>
+
+            </div>
+
+
+            <!-- MAKNA -->
+
+            <div class="story-card">
+
+                <h3>— MAKNA DI BALIK NAMA</h3>
+
+                <p>
+                    Motor ini diberi nama
+                    <span class="highlight">Sprint.Gio</span>.
+                </p>
+
+                <p>
+                    Nama <span class="highlight">Gio</span> diambil
+                    dari kata Italia
+                    <span class="highlight">"Coraggio"</span>,
+                    yang berarti <span class="highlight">keberanian</span>.
+                </p>
+
+                <div class="quote">
+                    "Sprint.Gio bukan hanya sebuah motor.
+                    Sprint.Gio adalah simbol keberanian untuk terus
+                    berjalan, meskipun perjalanan sebelumnya tidak
+                    selalu berjalan sesuai harapan."
+                </div>
+
+            </div>
+
+
+            <!-- OWNER -->
+
+            <div class="story-card">
+
+                <h3>— CERITA SEORANG OWNER</h3>
+
+                <p>
+                    Bagi owner, nama tersebut bukan sekadar nama motor.
+                </p>
+
+                <p>
+                    Ada cerita tentang seseorang yang sejak kecil
+                    telah melewati berbagai pengalaman yang membuatnya
+                    sering terluka.
+                </p>
+
+                <p>
+                    Namun justru dari pengalaman itulah terbentuk
+                    seseorang yang belajar untuk menjadi kuat,
+                    berani, dan terus menghadapi perjalanan berikutnya.
+                </p>
+
+                <p>
+                    Sama seperti Sprint.Gio yang pernah salah memilih
+                    jalan, owner pun belajar dari setiap perjalanan
+                    yang pernah dilewati.
+                </p>
+
+            </div>
+
+
+            <!-- ENDING -->
+
+            <div class="ending">
+
+                <h2>PERJALANAN BELUM SELESAI.</h2>
+
+                <p>
+                    Sprint.Gio bukan cuma tentang motor,tapi kecepatan
+                     dan penampilan.
+                </p>
+
+                <p>
+                    Ini adalah cerita perjalanan...
+                    seseorang owner yang pernah salah memilih jalan dan
+                    menghabiskan banyak waktu dan biaya,
+                    lalu mencoba membangun kembali dari awal.
+                </p>
+
+                <div class="quote">
+                    "Dan perjalanan Sprint.Gio ini...
+                    belum selesai."
+                </div>
+
+                <p>
+                    Kalau kalian mau tahu kelanjutan cerita
+                    Sprint.Gio, ikuti perjalanan ini dari awal.
+                </p>
+
+                <a
+                    class="instagram"
+                    href="https://www.instagram.com/feridya6/"
+                    target="_blank"
+                >
+                    Follow @feridya6
+                </a>
+
+            </div>
+
+
+            <button class="back-button" onclick="backHome()">
+                ← Kembali ke halaman awal
+            </button>
+
+
+            <footer>
+                © 2026 Sprint.Gio — A Story of Coraggio
+            </footer>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+       function openStory() {
+
+    document.getElementById("home").style.display = "none";
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.5;
+
+    music.play().catch(function(error) {
+        console.log("Musik tidak dapat diputar:", error);
+    });
+
+            const story = document.getElementById("story");
+
+            story.style.display = "block";
+            story.classList.add("show-story");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function backHome() {
+
+            document.getElementById("story").style.display = "none";
+
+            document.getElementById("home").style.display = "flex";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+<audio id="bgMusic" loop>
+    <source src="Never%20Give%20Up%20%28The%20Jagg%20Remix%29%20%5Bvbf0KIdWDOk%5D.mp3" type="audio/mpeg">
+</audio>
 
             </div>
 
