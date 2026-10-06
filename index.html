@@ -1053,49 +1053,7 @@
 
     <script>
 
-       function openStory() {
 
-    document.getElementById("home").style.display = "none";
-
-    const music = document.getElementById("bgMusic");
-
-    music.volume = 0.5;
-
-    music.play().catch(function(error) {
-        console.log("Musik tidak dapat diputar:", error);
-    });
-
-            const story = document.getElementById("story");
-
-            story.style.display = "block";
-            story.classList.add("show-story");
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-
-
-        function backHome() {
-
-            document.getElementById("story").style.display = "none";
-
-            document.getElementById("home").style.display = "flex";
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-
-    </script>
-
-<audio id="bgMusic" loop>
-    <source src="Never%20Give%20Up%20%28The%20Jagg%20Remix%29%20%5Bvbf0KIdWDOk%5D.mp3" type="audio/mpeg">
-</audio>
 
             </div>
 
