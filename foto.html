@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foto Sprint.Gio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+        }
+
+        .gallery {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px;
+            text-align: center;
+        }
+
+        .title {
+            margin-bottom: 50px;
+        }
+
+        .title h1 {
+            font-size: clamp(40px, 7vw, 70px);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .title p {
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        .line {
+            width: 80px;
+            height: 3px;
+            background: white;
+            margin: 25px auto;
+        }
+
+        /* FOTO */
+
+        .photo-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+            transition: .3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+            border-color: #666;
+        }
+
+        .photo-card img {
+            width: 100%;
+            max-height: 800px;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .caption {
+            padding: 20px 10px 10px;
+            color: #bbb;
+            font-size: 17px;
+        }
+
+        /* TOMBOL KEMBALI */
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: 1px solid #444;
+            border-radius: 40px;
+            color: #aaa;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .back-button:hover {
+            color: white;
+            border-color: white;
+            transform: scale(1.04);
+        }
+
+        footer {
+            margin-top: 70px;
+            color: #555;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery">
+
+        <div class="title">
+
+            <h1>Foto Sprint.Gio</h1>
+
+            <p>
+                Dokumentasi perjalanan Sprint.Gio
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+
+        <!-- FOTO 1 -->
+
+        <div class="photo-card">
+
+            <img
+                src="foto1.jpg"
+                alt="Sprint.Gio"
+            >
+
+            <div class="caption">
+                Sprint.Gio — SMR GARAGE77
+            </div>
+
+        </div>
+
+
+        <!-- TOMBOL KEMBALI -->
+
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Kembali ke cerita
+        </a>
+
+
+        <footer>
+            © 2026 Sprint.Gio — A Story of Coraggio
+        </footer>
+
+    </div>
+
+</body>
+</html>
