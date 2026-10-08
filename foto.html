@@ -13,12 +13,21 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #0b0b0b;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
             min-height: 100vh;
+            overflow-x: hidden;
         }
+
+        /* =========================
+           HEADER
+        ========================== */
 
         .gallery {
             max-width: 1100px;
@@ -49,14 +58,39 @@
             margin: 25px auto;
         }
 
-        /* FOTO */
+        /* =========================
+           TOMBOL MUSIK
+        ========================== */
+
+        .music-button {
+            display: inline-block;
+            margin-bottom: 50px;
+            padding: 15px 30px;
+            border: 1px solid #444;
+            border-radius: 50px;
+            background: #fff;
+            color: #111;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .music-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255,255,255,.15);
+        }
+
+        /* =========================
+           FOTO
+        ========================== */
 
         .photo-card {
             background: #111;
             border: 1px solid #333;
             border-radius: 20px;
             padding: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             box-shadow: 0 20px 60px rgba(0,0,0,.5);
             transition: .3s;
         }
@@ -66,12 +100,22 @@
             border-color: #666;
         }
 
+        .photo-card a {
+            display: block;
+        }
+
         .photo-card img {
             width: 100%;
             max-height: 800px;
             object-fit: contain;
             border-radius: 12px;
             display: block;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .photo-card img:hover {
+            transform: scale(1.01);
         }
 
         .caption {
@@ -80,11 +124,13 @@
             font-size: 17px;
         }
 
-        /* TOMBOL KEMBALI */
+        /* =========================
+           KEMBALI
+        ========================== */
 
         .back-button {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 15px 30px;
             border: 1px solid #444;
             border-radius: 40px;
@@ -99,10 +145,38 @@
             transform: scale(1.04);
         }
 
+        /* =========================
+           FOOTER
+        ========================== */
+
         footer {
             margin-top: 70px;
             color: #555;
             font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .gallery {
+                padding: 50px 15px;
+            }
+
+            .title {
+                margin-bottom: 35px;
+            }
+
+            .photo-card {
+                padding: 10px;
+                border-radius: 15px;
+            }
+
+            .photo-card img {
+                border-radius: 10px;
+            }
         }
     </style>
 </head>
@@ -110,6 +184,10 @@
 <body>
 
     <div class="gallery">
+
+        <!-- =========================
+             JUDUL
+        ========================== -->
 
         <div class="title">
 
@@ -124,14 +202,40 @@
         </div>
 
 
-        <!-- FOTO 1 -->
+        <!-- =========================
+             MUSIK
+        ========================== -->
+
+        <audio id="bgMusic" loop>
+            <source
+                src="Never%20Give%20Up%20%28The%20Jagg%20Remix%29%20%5Bvbf0KIdWDOk%5D.mp3"
+                type="audio/mpeg"
+            >
+        </audio>
+
+        <button
+            class="music-button"
+            onclick="toggleMusic()"
+            id="musicButton"
+        >
+            ▶ Putar Musik
+        </button>
+
+
+        <!-- =========================
+             FOTO 1
+        ========================== -->
 
         <div class="photo-card">
 
-            <img
-                src="foto1.jpg"
-                alt="Sprint.Gio"
-            >
+            <a href="foto1.jpg" target="_blank">
+
+                <img
+                    src="foto1.jpg"
+                    alt="Sprint.Gio Foto 1"
+                >
+
+            </a>
 
             <div class="caption">
                 Sprint.Gio — SMR GARAGE77
@@ -140,7 +244,53 @@
         </div>
 
 
-        <!-- TOMBOL KEMBALI -->
+        <!-- =========================
+             FOTO 2
+        ========================== -->
+
+        <div class="photo-card">
+
+            <a href="foto2.jpg" target="_blank">
+
+                <img
+                    src="foto2.jpg"
+                    alt="Sprint.Gio Foto 2"
+                >
+
+            </a>
+
+            <div class="caption">
+                Sprint.Gio — Dokumentasi Perjalanan
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             FOTO 3
+        ========================== -->
+
+        <div class="photo-card">
+
+            <a href="foto3.jpg" target="_blank">
+
+                <img
+                    src="foto3.jpg"
+                    alt="Sprint.Gio Foto 3"
+                >
+
+            </a>
+
+            <div class="caption">
+                Sprint.Gio — Perjalanan Berikutnya
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             KEMBALI KE CERITA
+        ========================== -->
 
         <a
             href="index.html"
@@ -155,6 +305,56 @@
         </footer>
 
     </div>
+
+
+    <!-- =========================
+         JAVASCRIPT MUSIK
+    ========================== -->
+
+    <script>
+
+        const music = document.getElementById("bgMusic");
+        const musicButton = document.getElementById("musicButton");
+
+        music.volume = 0.5;
+
+
+        function toggleMusic() {
+
+            if (music.paused) {
+
+                music.play()
+                    .then(function() {
+
+                        musicButton.innerHTML = "⏸ Pause Musik";
+
+                    })
+                    .catch(function(error) {
+
+                        alert("Musik belum bisa diputar. Pastikan file MP3 sudah di-upload ke GitHub.");
+
+                        console.log(error);
+
+                    });
+
+            } else {
+
+                music.pause();
+
+                musicButton.innerHTML = "▶ Putar Musik";
+
+            }
+
+        }
+
+
+        music.addEventListener("ended", function() {
+
+            musicButton.innerHTML = "▶ Putar Musik";
+
+        });
+
+    </script>
 
 </body>
 </html>
